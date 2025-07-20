@@ -1,7 +1,12 @@
-export const lyceeList = [
+
+
+
+
+// ~/composable/lyceeData.ts
+export const lyceeList : any = ref([
   { name: "Lycée Gaston Berger", town: "Lille", status: "Lycée Public" },
   { name: "Etienne Dolet", town: "", status: "" },
-  { name: "Lycée privé Charles de Foucauld", town: "", status: "" },
+    { name: "Lycée privé Charles de Foucauld", town: "", status: "" },
   { name: "Lycée polyvalent Guillaume Tirel", town: "", status: "" },
   { name: "Lycée polyvalent l'Initiative", town: "", status: "" },
   { name: "Lycée polyvalent privé Saint Jean de Montmartre", town: "", status: "" },
@@ -19,16 +24,17 @@ export const lyceeList = [
   { name: "Lycée Claude Monet", town: "", status: "" },
   { name: "Lycée privé Lucien de Hirsch", town: "", status: "" },
   { name: "Lycée privé Saint-Michel de Picpus", town: "", status: "" }
-];
+  // ... autres lycées ...
+])
 
-// Function to assign random towns and statuses (excluding the first item)
 export const initializeLyceeList = () => {
-  const towns = ["Rennes", "Lille", "Paris", "Marseille"];
-  lyceeList.forEach((lycee : any, index) => {
-    if (index > 0) {
-      lycee.town = towns[Math.floor(Math.random() * towns.length)];
-      lycee.status = Math.random() > 0.5 ? "Lycée Public" : "Lycée Privé";
+  const towns = ["Rennes", "Lille", "Paris", "Marseille"]
+  lyceeList.value = lyceeList.value.map((lycee : any, index : number) => {
+    if (index === 0) return lycee
+    return {
+      ...lycee,
+      town: towns[Math.floor(Math.random() * towns.length)],
+      status: Math.random() > 0.5 ? "Lycée Public" : "Lycée Privé"
     }
-  });
-  return lyceeList;
-};
+  })
+}

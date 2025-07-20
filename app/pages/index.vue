@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Header from '~/composable/Header.vue';
-import College from '~/composable/College/index.vue';
-import Accordion from '~/composable/College/Accordion/index.vue';
+import Header from '~/components/Header.vue';
+import College from '~/components/College/index.vue';
+import Accordion from '~/components/College/Accordion/index.vue';
 </script>
 
 <template>
