@@ -1,1 +1,6 @@
 @import "tailwindcss";
+@import "@nuxt/ui";
+
+.bg-gradient {
+   background: linear-gradient(to right, #FFDAB9, #FFDAB9 40%, #DDA0DD);
+}
